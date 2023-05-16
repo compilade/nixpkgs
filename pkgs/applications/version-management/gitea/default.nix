@@ -4,6 +4,7 @@
 , fetchurl
 , makeWrapper
 , git
+, git-lfs
 , bash
 , gitea
 , gzip
@@ -62,7 +63,7 @@ buildGoModule rec {
     cp -R ./options/locale $out/locale
 
     wrapProgram $out/bin/gitea \
-      --prefix PATH : ${lib.makeBinPath [ bash git gzip openssh ]}
+      --prefix PATH : ${lib.makeBinPath [ bash git git-lfs gzip openssh ]}
   '';
 
   passthru = {
