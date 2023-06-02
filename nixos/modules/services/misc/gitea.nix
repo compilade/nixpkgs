@@ -559,7 +559,6 @@ in
             ${lib.optionalString (cfg.mailerPasswordFile != null) ''
               ${replaceSecretBin} '#mailerpass#' '${cfg.mailerPasswordFile}' '${runConfig}'
             ''}
-            chmod u-w '${runConfig}'
           }
           (umask 027; gitea_setup)
         ''}
